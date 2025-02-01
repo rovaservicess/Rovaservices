@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Manutenção de Ar-Condicionado</title>
+    <style>
+        /* Estilos semelhantes aos anteriores, ajustados para manter a consistência visual */
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contrato de Manutenção de Ar-Condicionado</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="contato.html">Contato</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="parceiros.html">Parceiros</a>
+    </nav>
+
+    <div class="container">
+        <h2>Contrato de Assinatura - Plano <span id="plano-name"></span></h2>
+        <p><strong>Carência:</strong> Todos os planos possuem uma carência de 3 meses.</p>
+
+        <div id="plano-details">
+            <!-- Detalhes do plano serão preenchidos aqui pelo JavaScript -->
+        </div>
+
+        <button onclick="location.href='formulario-assinatura.html'">Assinar</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const plano = urlParams.get('plano');
+        
+        const planos = {
+            'básico_sem_cobertura': {
+                nome: 'Plano Básico Sem Cobertura',
+                preco: 'R$ 150,00 por mês',
+                descricao: 'Manutenção preventiva semestral para até 5 aparelhos. A reposição de peças e carga de gás será cobrada separadamente.'
+            },
+            'empresarial_sem_cobertura': {
+                nome: 'Plano Empresarial Sem Cobertura',
+                preco: 'R$ 400,00 por mês',
+                descricao: 'Manutenção mensal para até 10 aparelhos. A reposição de peças e carga de gás será cobrada separadamente.'
+            },
+            'premium_sem_cobertura': {
+                nome: 'Plano Premium Sem Cobertura',
+                preco: 'R$ 800,00 por mês',
+                descricao: 'Manutenção semanal para até 15 aparelhos. A reposição de peças e carga de gás será cobrada separadamente.'
+            },
+            'básico_com_cobertura': {
+                nome: 'Plano Básico com Cobertura',
+                preco: 'R$ 250,00 por mês',
+                descricao: 'Manutenção preventiva semestral para até 5 aparelhos. Inclui reposição de peças e carga de gás.'
+            },
+            'empresarial_com_cobertura': {
+                nome: 'Plano Empresarial com Cobertura',
+                preco: 'R$ 600,00 por mês',
+                descricao: 'Manutenção mensal para até 10 aparelhos. Inclui reposição de peças e carga de gás.'
+            },
+            'premium_com_cobertura': {
+                nome: 'Plano Premium com Cobertura',
+                preco: 'R$ 1.200,00 por mês',
+                descricao: 'Manutenção semanal para até 15 aparelhos. Inclui reposição de peças e carga de gás.'
+            }
+        };
+        
+        const planoData = planos[plano];
+        
+        document.getElementById('plano-name').innerText = planoData.nome;
+        document.getElementById('plano-details').innerHTML = `
+            <p><strong>Valor:</strong> ${planoData.preco}</p>
+            <p><strong>Descrição:</strong> ${planoData.descricao}</p>
+        `;
+    </script>
+
+</body>
+</html>
