@@ -6,76 +6,101 @@
     <title>Formulário de Assinatura de Manutenção</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #007bff;
             color: white;
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
+            font-size: 2rem;
         }
+
         nav {
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
         }
+
         nav a {
             color: #007bff;
             text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-size: 16px;
+            padding: 12px 25px;
+            margin: 0 15px;
+            font-size: 18px;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
+
         nav a:hover {
             background-color: #0056b3;
             color: white;
         }
+
         .container {
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-        form {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
             background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: grid;
-            gap: 20px;
-            justify-items: center;
-            max-width: 600px;
-            margin: 0 auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        form input {
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input[type="text"], input[type="email"] {
             padding: 15px;
             font-size: 16px;
-            width: 80%;
-            max-width: 400px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease-in-out;
         }
-        form button {
+
+        input[type="text"]:focus, input[type="email"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
             background-color: #28a745;
             color: white;
-            padding: 15px 30px;
+            padding: 18px;
             font-size: 18px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            width: 80%;
-            max-width: 400px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease-in-out;
         }
-        form button:hover {
+
+        button:hover {
             background-color: #218838;
         }
-        form h2 {
-            color: #333;
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #888;
         }
+
+        footer a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
     </style>
 </head>
 <body>
@@ -93,31 +118,43 @@
     </nav>
 
     <div class="container">
-        <h2>Preencha os dados abaixo para completar sua assinatura</h2>
+        <h2>Complete os dados abaixo para finalizar sua assinatura</h2>
 
         <form id="form">
             <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br><br>
             <input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
             <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br><br>
             <input type="text" id="empresa" name="empresa" placeholder="Nome da Empresa" required><br><br>
-            <input type="text" id="plano" name="plano" placeholder="Escolha o Plano" required><br><br>
+            <input type="text" id="plano" name="plano" placeholder="Plano Escolhido" required><br><br>
+
             <button type="button" onclick="enviarWhatsApp()">Assinar</button>
         </form>
     </div>
 
+    <footer>
+        <p>&copy; 2025 Rova Services. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+    </footer>
+
     <script>
         function enviarWhatsApp() {
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
-            const empresa = document.getElementById('empresa').value;
-            const plano = document.getElementById('plano').value;
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var telefone = document.getElementById('telefone').value;
+            var empresa = document.getElementById('empresa').value;
+            var plano = document.getElementById('plano').value;
 
-            const mensagem = `*Novo Pedido de Assinatura*\n\nNome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\nEmpresa: ${empresa}\nPlano Escolhido: ${plano}`;
-            const numeroWhatsApp = "31972532868"; // Coloque o número do WhatsApp da empresa
+            var mensagem = `Olá! Gostaria de assinar o plano de manutenção. Aqui estão os dados:
 
-            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-            window.open(url, "_blank");
+            Nome: ${nome}
+            E-mail: ${email}
+            Telefone: ${telefone}
+            Empresa: ${empresa}
+            Plano Escolhido: ${plano}`;
+
+            var linkWhatsApp = `https://wa.me/31972532868?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(linkWhatsApp, '_blank');
         }
     </script>
 
