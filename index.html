@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rova Services - Assistência 24h</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+        }
+        nav {
+            background-color: #222;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #444;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+        .service-section {
+            margin: 30px 0;
+            background-color: #555;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .service-section h3 {
+            color: #007BFF;
+        }
+        .service-section img {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .review-section {
+            margin: 30px 0;
+            background-color: #555;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .review-section h3 {
+            color: #007BFF;
+        }
+        .review-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .review-list li {
+            background-color: #444;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .stars {
+            color: gold;
+        }
+        .stars span {
+            font-size: 20px;
+        }
+        .feedback-form {
+            margin-top: 20px;
+        }
+        .rating {
+            display: inline-block;
+            font-size: 18px;
+        }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            color: gray;
+            cursor: pointer;
+        }
+        .rating input:checked ~ label {
+            color: gold;
+        }
+        .rating input:hover ~ label {
+            color: lightgray;
+        }
+        .plan-section {
+            background-color: #444;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .plan-section h3 {
+            color: #007BFF;
+        }
+        .plan-section .plan {
+            display: inline-block;
+            margin: 15px;
+            background-color: #555;
+            padding: 20px;
+            border-radius: 5px;
+            width: 250px;
+        }
+        .plan-section .plan h4 {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rova Services</h1>
+        <p>Assistência 24 horas para sua tranquilidade</p>
+    </header>
+    
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+        <a href="#">Sobre Nós</a>
+    </nav>
+    
+    <div class="container">
+        <h2>Bem-vindo à Rova Services</h2>
+        <p>Oferecemos serviços de assistência 24h com qualidade, rapidez e eficiência.</p>
+        <a href="https://wa.me/31972632868?text=Olá,%20preciso%20de%20assistência%20para%20meu%20ar%20condicionado!" class="btn">Ligue Agora via WhatsApp</a>
+    </div>
+
+    <!-- Serviços -->
+    <div class="service-section">
+        <h3>Manutenção e Limpeza de Ar Condicionado</h3>
+        <img src="https://via.placeholder.com/600x400?text=Ar+Condicionado" alt="Manutenção de Ar Condicionado">
+        <p><strong>Oferta Especial!</strong> Apenas 10 vagas restantes para a limpeza de ar condicionado. Agende agora e aproveite descontos exclusivos para condomínios e hotéis. Mantenha o ambiente sempre agradável e saudável!</p>
+        <a href="https://wa.me/31972632868?text=Gostaria%20de%20agendar%20a%20manutenção%20do%20meu%20ar%20condicionado" class="btn">Agende sua Manutenção</a>
+    </div>
+
+    <div class="service-section">
+        <h3>Encanador 24h</h3>
+        <img src="https://via.placeholder.com/600x400?text=Encanador" alt="Encanador">
+        <p>Estamos disponíveis 24h para resolver problemas de encanamento, como vazamentos, entupimentos e instalações. Conte conosco para solucionar seus problemas hidráulicos com rapidez e eficiência.</p>
+        <a href="https://wa.me/31972632868?text=Preciso%20de%20um%20encanador%20urgente" class="btn">Chame um Encanador</a>
+    </div>
+
+    <div class="service-section">
+        <h3>Assistência Técnica em Eletrodomésticos</h3>
+        <img src="https://via.placeholder.com/600x400?text=Eletrodomésticos" alt="Assistência Técnica">
+        <p>Oferecemos assistência técnica para eletrodomésticos de todas as marcas, incluindo máquinas de lavar, geladeiras, micro-ondas e muito mais. Se seu equipamento está com problemas, entre em contato e agende um atendimento especializado.</p>
+        <a href="https://wa.me/31972632868?text=Quero%20assistência%20técnica%20para%20meu%20eletrodoméstico" class="btn">Agende Assistência Técnica</a>
+    </div>
+
+    <!-- Comentários de clientes -->
+    <div class="review-section">
+        <h3>O que nossos clientes estão dizendo</h3>
+        <ul class="review-list">
+            <li>
+                <p><strong>João Silva</strong></p>
+                <p>"A limpeza do meu ar condicionado foi feita de forma rápida e eficiente. Super recomendo!"</p>
+                <div class="stars">
+                    <span>★★★★★</span>
+                </div>
+            </li>
+            <li>
+                <p><strong>Maria Oliveira</strong></p>
+                <p>"O atendimento foi excelente! Meu eletrodoméstico foi consertado no mesmo dia. Estão de parabéns!"</p>
+                <div class="stars">
+                    <span>★★★★★</span>
+                </div>
+            </li>
+            <li>
+                <p><strong>Pedro Santos</strong></p>
+                <p>"Chamei o encanador da Rova Services para um vazamento, e a resposta foi rápida e eficiente. Muito satisfeito!"</p>
+                <div class="stars">
+                    <span>★★★★☆</span>
+                </div>
+            </li>
+        </ul>
+
+        <h4>Deixe seu comentário</h4>
+        <form class="feedback-form">
+            <div class="rating">
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+            </div>
+            <textarea placeholder="Deixe seu comentário aqui..." rows="4" style="width: 100%;"></textarea>
+            <button type="submit" class="btn">Enviar Comentário</button>
+        </form>
+    </div>
+
+    <!-- Planos para condomínios e hotéis -->
+    <div class="plan-section">
+        <h3>Planos Exclusivos para Condomínios e Hotéis</h3>
+        <p>Oferecemos planos personalizados de limpeza e manutenção de ar condicionado para grandes estabelecimentos, como condomínios e hotéis. Garantimos um ambiente sempre agradável para seus clientes e moradores. Entre em contato para saber mais!</p>
+        <div class="plan">
+            <h4>Plano Básico</h4>
+            <p>Limpeza regular mensal para até 10 unidades.</p>
+            <p><strong>R$ 500/mês</strong></p>
+        </div>
+        <div class="plan">
+            <h4>Plano Premium</h4>
+            <p>Limpeza e manutenção para até 20 unidades com atendimento emergencial.</p>
+            <p><strong>R$ 900/mês</strong></p>
+        </div>
+        <a href="https://wa.me/31972632868?text=Quero%20mais%20informações%20sobre%20os%20planos%20para%20condomínios%20e%20hotéis" class="btn">Solicite seu Plano</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Rova Services - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
