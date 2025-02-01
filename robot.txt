@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /privado/
+
+Sitemap: https://rovaservices.com.br/sitemap.xml
