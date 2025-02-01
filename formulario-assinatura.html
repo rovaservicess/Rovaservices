@@ -1,100 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Assinatura</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            color: #007bff;
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-        nav a:hover {
-            background-color: #0056b3;
-            color: white;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-        }
-        form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: grid;
-            gap: 20px;
-            justify-items: center;
-        }
-        form input {
-            padding: 10px;
-            font-size: 16px;
-            width: 80%;
-            max-width: 400px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        form button {
-            background-color: #28a745;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>Formulário de Assinatura de Manutenção</h1>
-    </header>
-
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="servicos.html">Serviços</a>
-        <a href="contato.html">Contato</a>
-        <a href="sobre.html">Sobre Nós</a>
-        <a href="parceiros.html">Parceiros</a>
-    </nav>
-
-    <div class="container">
-        <h2>Preencha os dados abaixo para completar sua assinatura</h2>
-
-        <form>
-            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br><br>
-            <input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
-            <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br><br>
-            <input type="text" id="empresa" name="empresa" placeholder="Nome da Empresa" required><br><br>
-            <input type="text" id="plano" name="plano" placeholder="Plano Selecionado" readonly><br><br>
-            <button type="submit">Assinar</button>
-        </form>
-    </div>
-
-</body>
-</html>
+<form action="processa_assinatura.php" method="POST">
+    <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br><br>
+    <input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
+    <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br><br>
+    <input type="text" id="empresa" name="empresa" placeholder="Nome da Empresa" required><br><br>
+    <select id="plano" name="plano" required>
+        <option value="">Selecione um plano</option>
+        <option value="Plano Básico (Sem Peças)">Plano Básico (Sem Peças)</option>
+        <option value="Plano Intermediário (Sem Peças)">Plano Intermediário (Sem Peças)</option>
+        <option value="Plano Avançado (Sem Peças)">Plano Avançado (Sem Peças)</option>
+        <option value="Plano Básico (Com Peças)">Plano Básico (Com Peças)</option>
+        <option value="Plano Intermediário (Com Peças)">Plano Intermediário (Com Peças)</option>
+        <option value="Plano Avançado (Com Peças)">Plano Avançado (Com Peças)</option>
+    </select><br><br>
+    <button type="submit">Assinar</button>
+</form>
