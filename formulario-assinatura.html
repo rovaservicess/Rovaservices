@@ -3,107 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Assinatura</title>
+    <title>Formulário de Assinatura de Manutenção</title>
     <style>
         body {
-            font-family: 'Helvetica', sans-serif;
-            background-color: #1d1d1d;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-            color: #fff;
         }
-
         header {
-            background-color: #000;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #fff;
-        }
-
-        nav {
-            background-color: #222;
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        nav a {
+            background-color: #007bff;
             color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            padding: 20px 0;
+            text-align: center;
         }
-
-        nav a:hover {
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
             color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border-radius: 5px;
         }
-
+        nav a:hover {
+            background-color: #0056b3;
+            color: white;
+        }
         .container {
             width: 80%;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #333;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
             text-align: center;
         }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
         form {
-            background-color: #444;
-            padding: 40px;
+            background-color: white;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             display: grid;
             gap: 20px;
             justify-items: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
-
-        form input, form select {
-            width: 80%;
-            max-width: 400px;
+        form input {
             padding: 15px;
             font-size: 16px;
+            width: 80%;
+            max-width: 400px;
             border: 1px solid #ddd;
             border-radius: 5px;
-            background-color: #fff;
-            color: #333;
+            margin: 10px 0;
         }
-
-        form select {
-            background-color: #f0f0f0;
-        }
-
         form button {
-            background-color: #007bff;
+            background-color: #28a745;
             color: white;
             padding: 15px 30px;
             font-size: 18px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            width: 80%;
+            max-width: 400px;
+            transition: background-color 0.3s;
         }
-
         form button:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
-
-        .footer {
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .footer p {
-            color: #bbb;
+        form h2 {
+            color: #333;
         }
     </style>
 </head>
@@ -124,28 +95,31 @@
     <div class="container">
         <h2>Preencha os dados abaixo para completar sua assinatura</h2>
 
-        <form action="processa_assinatura.php" method="POST">
-            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br>
-            <input type="email" id="email" name="email" placeholder="E-mail" required><br>
-            <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br>
-            <input type="text" id="empresa" name="empresa" placeholder="Nome da Empresa" required><br>
-            <select id="plano" name="plano" required>
-                <option value="">Selecione um plano</option>
-                <option value="Plano Básico (Sem Peças)">Plano Básico (Sem Peças)</option>
-                <option value="Plano Intermediário (Sem Peças)">Plano Intermediário (Sem Peças)</option>
-                <option value="Plano Avançado (Sem Peças)">Plano Avançado (Sem Peças)</option>
-                <option value="Plano Básico (Com Peças)">Plano Básico (Com Peças)</option>
-                <option value="Plano Intermediário (Com Peças)">Plano Intermediário (Com Peças)</option>
-                <option value="Plano Avançado (Com Peças)">Plano Avançado (Com Peças)</option>
-            </select><br><br>
-
-            <button type="submit">Assinar</button>
+        <form id="form">
+            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br><br>
+            <input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
+            <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br><br>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da Empresa" required><br><br>
+            <input type="text" id="plano" name="plano" placeholder="Escolha o Plano" required><br><br>
+            <button type="button" onclick="enviarWhatsApp()">Assinar</button>
         </form>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2025 Rova Services - Todos os direitos reservados</p>
-    </div>
+    <script>
+        function enviarWhatsApp() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const empresa = document.getElementById('empresa').value;
+            const plano = document.getElementById('plano').value;
+
+            const mensagem = `*Novo Pedido de Assinatura*\n\nNome: ${nome}\nE-mail: ${email}\nTelefone: ${telefone}\nEmpresa: ${empresa}\nPlano Escolhido: ${plano}`;
+            const numeroWhatsApp = "31972532868"; // Coloque o número do WhatsApp da empresa
+
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank");
+        }
+    </script>
 
 </body>
 </html>
