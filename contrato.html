@@ -3,9 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contrato de Manutenção de Ar-Condicionado</title>
+    <title>Contrato de Manutenção</title>
     <style>
-        /* Estilos semelhantes aos anteriores, ajustados para manter a consistência visual */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contract-details {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contract-details h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .contract-details p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .contract-details button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contract-details button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -24,13 +83,10 @@
 
     <div class="container">
         <h2>Contrato de Assinatura - Plano <span id="plano-name"></span></h2>
-        <p><strong>Carência:</strong> Todos os planos possuem uma carência de 3 meses.</p>
-
-        <div id="plano-details">
-            <!-- Detalhes do plano serão preenchidos aqui pelo JavaScript -->
+        <div class="contract-details" id="plano-details">
+            <!-- Detalhes do contrato serão inseridos aqui pelo JavaScript -->
         </div>
-
-        <button onclick="location.href='formulario-assinatura.html'">Assinar</button>
+        <button onclick="location.href='formulario-assinatura.html'">Assinar Agora</button>
     </div>
 
     <script>
@@ -76,6 +132,7 @@
         document.getElementById('plano-details').innerHTML = `
             <p><strong>Valor:</strong> ${planoData.preco}</p>
             <p><strong>Descrição:</strong> ${planoData.descricao}</p>
+            <p><strong>Carência:</strong> Todos os planos possuem carência de 3 meses.</p>
         `;
     </script>
 
