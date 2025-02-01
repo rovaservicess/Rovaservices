@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Rova Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica', sans-serif;
+        }
+        body {
+            background-color: #1d1d1d;
+            color: white;
+            text-align: center;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 40px 0;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: #222;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #333;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+        .service-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .service-card {
+            background-color: #444;
+            margin: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 30%;
+            border-radius: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .service-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            height: auto;
+        }
+        .service-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+        .service-card a:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .service-card {
+                max-width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .service-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Rova Services - Nossos Serviços</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="contato.html">Contato</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="parceiros.html">Parceiros</a>
+    </nav>
+
+    <div class="container">
+        <h2>Serviços Oferecidos</h2>
+        <p>Escolha um dos nossos serviços especializados para agendar.</p>
+
+        <div class="service-section">
+            <div class="service-card">
+                <img src="https://www.hiroclima.com.br/wp-content/uploads/2024/04/destacada-servico-manutencao-ar-condicionado-min.png" alt="Limpeza de Ar Condicionado">
+                <h3>Limpeza de Ar Condicionado</h3>
+                <p>Manutenção e limpeza para garantir ar puro e eficiência do seu equipamento.</p>
+                <a href="https://wa.me/31972532868?text=Olá!!%20Vim%20pelo%20site.%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20limpeza%20de%20ar%20condicionado.">Agendar</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaMdXKINdhOVPzz45gt0B_5ORhzFybq5zr9fU0h5p_FcP6iKjZI_lzNK4&s=10" alt="Chaveiro 24h">
+                <h3>Chaveiro 24h</h3>
+                <p>Serviço de chaveiro emergencial disponível a qualquer hora.</p>
+                <a href="https://wa.me/31972532868?text=Olá!!%20Vim%20pelo%20site.%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20chaveiro.">Agendar</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0Y3HwmCvXWKr8s0WMLCk0KVOOb1jsASS6lsJHi_68UXe36XGVSo8CJY&s=10" alt="Encanador 24h">
+                <h3>Encanador 24h</h3>
+                <p>Reparos hidráulicos rápidos para emergências e manutenções.</p>
+                <a href="https://wa.me/31972532868?text=Olá!!%20Vim%20pelo%20site.%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20encanador.">Agendar</a>
+            </div>
+        </div>
+
+        <div class="service-section">
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvTzsPG0TRxUkVaCI462I1vJtgCg1jHc1wIIgol9ySoBW9TY6VPIIetZrH&s=10" alt="Eletricista 24h">
+                <h3>Eletricista 24h</h3>
+                <p>Soluções elétricas rápidas e seguras para sua casa ou empresa.</p>
+                <a href="https://wa.me/31972532868?text=Olá!!%20Vim%20pelo%20site.%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20eletricista.">Agendar</a>
+            </div>
+
+            <div class="service-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HJDecembGPbgKEsEesgGfB_BqO1mTRPyjCx3kRYzjCOEs9YPiG9M_Iie&s=10" alt="Instalação de Prateleiras e Cortinas">
+                <h3>Instalação de Prateleiras e Cortinas</h3>
+                <p>Montagem profissional para deixar seu ambiente mais organizado.</p>
+                <a href="https://wa.me/31972532868?text=Olá!!%20Vim%20pelo%20site.%20Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20instala%C3%A7%C3%A3o%20de%20prateleiras%20e%20cortinas.">Agendar</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Plano Mensal para Empresas</h3>
+                <p>Pacotes personalizados para condomínios e hotéis.</p>
+                <a href="https://wa.me/31972532868?text=Olá!!%20Vim%20pelo%20site.%20Gostaria%20de%20agendar%20um%20plano%20mensal%20para%20empresas.">Agendar</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
