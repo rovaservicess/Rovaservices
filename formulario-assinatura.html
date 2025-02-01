@@ -5,7 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Assinatura</title>
     <style>
-        /* Estilos semelhantes aos anteriores */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: grid;
+            gap: 20px;
+            justify-items: center;
+        }
+        form input {
+            padding: 10px;
+            font-size: 16px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -23,28 +84,17 @@
     </nav>
 
     <div class="container">
-        <h2>Preencha o formulário para completar a assinatura.</h2>
+        <h2>Preencha os dados abaixo para completar sua assinatura</h2>
 
         <form>
-            <label for="nome">Nome Completo:</label>
-            <input type="text" id="nome" name="nome" required><br><br>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required><br><br>
-
-            <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" required><br><br>
-
-            <label for="empresa">Nome da Empresa:</label>
-            <input type="text" id="empresa" name="empresa" required><br><br>
-
-            <label for="plano">Plano Selecionado:</label>
-            <input type="text" id="plano" name="plano" readonly><br><br>
-
-            <input type="submit" value="Assinar">
+            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required><br><br>
+            <input type="email" id="email" name="email" placeholder="E-mail" required><br><br>
+            <input type="text" id="telefone" name="telefone" placeholder="Telefone" required><br><br>
+            <input type="text" id="empresa" name="empresa" placeholder="Nome da Empresa" required><br><br>
+            <input type="text" id="plano" name="plano" placeholder="Plano Selecionado" readonly><br><br>
+            <button type="submit">Assinar</button>
         </form>
     </div>
 
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const plano
+</body>
+</html>
