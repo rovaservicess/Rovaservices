@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rova Services - Assistência 24h</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            background-color: #fff;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 30px 20px;
+        }
+        nav {
+            background-color: #333;
+            padding: 15px 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            margin: 20px 0;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #444;
+        }
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .service {
+            width: 45%;
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .service:hover {
+            transform: scale(1.05);
+        }
+        .service img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .service h3 {
+            margin-top: 15px;
+        }
+        .service p {
+            font-size: 14px;
+            color: #666;
+        }
+        .service-description {
+            display: none;
+            margin-top: 20px;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .service-description p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+        }
+        .service-description h3 {
+            color: #000;
+        }
+        .service-description .btn {
+            background-color: #007BFF;
+        }
+        .plans {
+            margin-top: 40px;
+        }
+        .plans h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .plan {
+            background-color: #f8f8f8;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .plan:hover {
+            transform: scale(1.05);
+        }
+        .plan h3 {
+            font-size: 20px;
+        }
+        .plan p {
+            font-size: 16px;
+            color: #444;
+        }
+        .partner-form {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+        .partner-form input, .partner-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .partner-form button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .partner-form button:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rova Services</h1>
+        <p>Assistência 24 horas para sua tranquilidade. Cuide do que é importante com nossos serviços de qualidade.</p>
+    </header>
+    
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Serviços</a>
+        <a href="#">Contato</a>
+        <a href="#">Sobre Nós</a>
+        <a href="#parceiros">Seja um Parceiro</a>
+    </nav>
+
+    <div class="container">
+        <h2>Serviços de Assistência 24h</h2>
+        <div class="services">
+          <!-- Serviços -->
+        <div class="service" onclick="toggleDescription('ar-condicionado')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO16QJ6AmUAcNJgY52tNJTeCayiuf8cB7T3VCagAonyx3mUA93lLyzT_NV&s=10" alt="Limpeza de Ar Condicionado">
+            <h3>Limpeza de Ar Condicionado</h3>
+            <p>Manutenção e limpeza para melhorar a qualidade do ar e aumentar a eficiência energética do seu ar condicionado.</p>
+            <div id="ar-condicionado" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Realizamos limpeza completa de sistemas de ar condicionado, removendo sujeira e sujeira acumulada, garantindo a qualidade do ar e o bom funcionamento do aparelho. Nosso serviço é ideal para residências, empresas, hotéis e condomínios.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20limpeza%20de%20ar%20condicionado." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('chaveiro')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaMdXKINdhOVPzz45gt0B_5ORhzFybq5zr9fU0h5p_FcP6iKjZI_lzNK4&s=10" alt="Chaveiro 24h">
+            <h3>Chaveiro 24h</h3>
+            <p>Chaveiro disponível 24 horas para resolver qualquer emergência com fechaduras e chaves.</p>
+            <div id="chaveiro" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Nosso serviço de chaveiro 24h está disponível para situações de emergência, como perda de chave, troca de fechaduras e abertura de portas. Atendemos em Belo Horizonte e região.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20chaveiro%2024h." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('encanador')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0Y3HwmCvXWKr8s0WMLCk0KVOOb1jsASS6lsJHi_68UXe36XGVSo8CJY&s=10" alt="Encanador 24h">
+            <h3>Encanador 24h</h3>
+            <p>Serviços de encanamento para resolver problemas de vazamentos, entupimentos e mais.</p>
+            <div id="encanador" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Realizamos reparos em encanamentos, instalação de novos sistemas e serviços de emergência 24h para resolver problemas como vazamentos e entupimentos. Nosso time é especializado e pronto para atender qualquer emergência.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20encanador%2024h." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('eletricista')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvTzsPG0TRxUkVaCI462I1vJtgCg1jHc1wIIgol9ySoBW9TY6VPIIetZrH&s=10" alt="Eletricista 24h">
+            <h3>Eletricista 24h</h3>
+            <p>Assistência elétrica para manutenção e reparos urgentes, inclusive problemas com eletrodomésticos.</p>
+            <div id="eletricista" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Oferecemos serviços elétricos 24h, com profissionais especializados em pequenos reparos, manutenção e instalação de sistemas elétricos. Atuamos também na assistência técnica de eletrodomésticos.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20eletricista%2024h." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('instalacoes')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HJDecembGPbgKEsEesgGfB_BqO1mTRPyjCx3kRYzjCOEs9YPiG9M_Iie&s=10" alt="Instalação de Prateleiras, Cortinas e Varais">
+            <h3>Instalação de Prateleiras, Cortinas e Varais</h3>
+            <p>Instalação de itens essenciais para sua casa ou empresa, com profissionalismo e precisão.</p>
+            <div id="instalacoes" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Oferecemos serviços de instalação de prateleiras, cortinas, varais e outros itens de sua casa ou empresa, com precisão e qualidade. Nossos profissionais são treinados para garantir que o serviço seja feito de forma rápida e segura.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20instala%C3%A7%C3%A3o%20de%20prateleiras%20e%20cortinas." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <h2>Planos Mensais para Condomínios, Empresas e Hotéis</h2>
+        <p>Conheça nossos planos especiais para empresas, hotéis e condomínios. Oferecemos serviços mensais com preços acessíveis para todos.</p>
+        <div class="plans">
+            <div class="plan">
+                <h3>Plano Básico</h3>
+                <p>Inclui manutenção preventiva de ar condicionado e assistência técnica para pequenos reparos, como chaveiro e encanamento.</p>
+                <p><strong>Valor: R$199,99/mês</strong></p>
+            </div>
+            <div class="plan">
+                <h3>Plano Intermediário</h3>
+                <p>Inclui todos os serviços do plano básico, mais manutenção elétrica e instalações periódicas de itens como prateleiras e cortinas.</p>
+                <p><strong>Valor: R$299,99/mês</strong></p>
+            </div>
+            <div class="plan">
+                <h3>Plano Completo</h3>
+                <p>Plano completo com todos os serviços, incluindo limpeza de ar condicionado, assistência 24h, e até mesmo serviços de instalação para novos espaços.</p>
+                <p><strong>Valor: R$499,99/mês</strong></p>
+            </div>
+        </div>
+        </div>
+        <!-- Serviços -->
+        <div class="service" onclick="toggleDescription('ar-condicionado')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO16QJ6AmUAcNJgY52tNJTeCayiuf8cB7T3VCagAonyx3mUA93lLyzT_NV&s=10" alt="Limpeza de Ar Condicionado">
+            <h3>Limpeza de Ar Condicionado</h3>
+            <p>Manutenção e limpeza para melhorar a qualidade do ar e aumentar a eficiência energética do seu ar condicionado.</p>
+            <div id="ar-condicionado" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Realizamos limpeza completa de sistemas de ar condicionado, removendo sujeira e sujeira acumulada, garantindo a qualidade do ar e o bom funcionamento do aparelho. Nosso serviço é ideal para residências, empresas, hotéis e condomínios.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20agendar%20um%20servi%C3%A7o%20de%20limpeza%20de%20ar%20condicionado." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('chaveiro')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaMdXKINdhOVPzz45gt0B_5ORhzFybq5zr9fU0h5p_FcP6iKjZI_lzNK4&s=10" alt="Chaveiro 24h">
+            <h3>Chaveiro 24h</h3>
+            <p>Chaveiro disponível 24 horas para resolver qualquer emergência com fechaduras e chaves.</p>
+            <div id="chaveiro" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Nosso serviço de chaveiro 24h está disponível para situações de emergência, como perda de chave, troca de fechaduras e abertura de portas. Atendemos em Belo Horizonte e região.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20chaveiro%2024h." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('encanador')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0Y3HwmCvXWKr8s0WMLCk0KVOOb1jsASS6lsJHi_68UXe36XGVSo8CJY&s=10" alt="Encanador 24h">
+            <h3>Encanador 24h</h3>
+            <p>Serviços de encanamento para resolver problemas de vazamentos, entupimentos e mais.</p>
+            <div id="encanador" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Realizamos reparos em encanamentos, instalação de novos sistemas e serviços de emergência 24h para resolver problemas como vazamentos e entupimentos. Nosso time é especializado e pronto para atender qualquer emergência.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20encanador%2024h." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('eletricista')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvTzsPG0TRxUkVaCI462I1vJtgCg1jHc1wIIgol9ySoBW9TY6VPIIetZrH&s=10" alt="Eletricista 24h">
+            <h3>Eletricista 24h</h3>
+            <p>Assistência elétrica para manutenção e reparos urgentes, inclusive problemas com eletrodomésticos.</p>
+            <div id="eletricista" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Oferecemos serviços elétricos 24h, com profissionais especializados em pequenos reparos, manutenção e instalação de sistemas elétricos. Atuamos também na assistência técnica de eletrodomésticos.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20eletricista%2024h." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <div class="service" onclick="toggleDescription('instalacoes')">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HJDecembGPbgKEsEesgGfB_BqO1mTRPyjCx3kRYzjCOEs9YPiG9M_Iie&s=10" alt="Instalação de Prateleiras, Cortinas e Varais">
+            <h3>Instalação de Prateleiras, Cortinas e Varais</h3>
+            <p>Instalação de itens essenciais para sua casa ou empresa, com profissionalismo e precisão.</p>
+            <div id="instalacoes" class="service-description">
+                <h3>Detalhes do Serviço</h3>
+                <p>Oferecemos serviços de instalação de prateleiras, cortinas, varais e outros itens de sua casa ou empresa, com precisão e qualidade. Nossos profissionais são treinados para garantir que o serviço seja feito de forma rápida e segura.</p>
+                <a href="https://wa.me/31972532868?text=Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20de%20instala%C3%A7%C3%A3o%20de%20prateleiras%20e%20cortinas." class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+
+        <h2>Planos Mensais para Condomínios, Empresas e Hotéis</h2>
+        <p>Conheça nossos planos especiais para empresas, hotéis e condomínios. Oferecemos serviços mensais com preços acessíveis para todos.</p>
+        <div class="plans">
+            <div class="plan">
+                <h3>Plano Básico</h3>
+                <p>Inclui manutenção preventiva de ar condicionado e assistência técnica para pequenos reparos, como chaveiro e encanamento.</p>
+                <p><strong>Valor: R$199,99/mês</strong></p>
+            </div>
+            <div class="plan">
+                <h3>Plano Intermediário</h3>
+                <p>Inclui todos os serviços do plano básico, mais manutenção elétrica e instalações periódicas de itens como prateleiras e cortinas.</p>
+                <p><strong>Valor: R$299,99/mês</strong></p>
+            </div>
+            <div class="plan">
+                <h3>Plano Completo</h3>
+                <p>Plano completo com todos os serviços, incluindo limpeza de ar condicionado, assistência 24h, e até mesmo serviços de instalação para novos espaços.</p>
+                <p><strong>Valor: R$499,99/mês</strong></p>
+            </div>
+        </div><!-- Área de Parceiros -->
+        <div class="partners">
+            <h2>Seja Nosso Parceiro</h2>
+            <p>Trabalhamos com diversas empresas e seguradoras em todo o Brasil. Se você deseja se tornar nosso parceiro, clique abaixo para começar a parceria.</p>
+            <button class="btn" onclick="toggleForm()">Clique aqui para se cadastrar</button>
+
+            <!-- Formulário de Parceria (Inicialmente escondido) -->
+            <div id="parterForm" style="display:none; margin-top: 20px;">
+                <form action="mailto:rovaservicess@gmail.com" method="POST" enctype="multipart/form-data">
+                    <h3>Formulário de Parceria</h3>
+                    <p>Preencha corretamente as informações abaixo para se cadastrar como parceiro.</p>
+                    <label for="empresaNome">Nome da Empresa</label>
+                    <input type="text" id="empresaNome" name="empresaNome" required>
+
+                    <label for="responsavelNome">Nome do Responsável</label>
+                    <input type="text" id="responsavelNome" name="responsavelNome" required>
+
+                    <label for="email">E-mail da Empresa</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="telefone">Telefone da Empresa</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+
+                    <label for="endereco">Endereço Completo</label>
+                    <input type="text" id="endereco" name="endereco" required>
+
+                    <label for="documento">Documentos de Identificação</label>
+                    <input type="file" id="documento" name="documento" accept="image/*" required>
+
+                    <label for="selfie">Selfie com Documento de Identificação</label>
+                    <input type="file" id="selfie" name="selfie" accept="image/*" required>
+
+                    <label for="descricao">Descrição do Serviço</label>
+                    <textarea id="descricao" name="descricao" rows="5" required></textarea>
+
+                    <button type="submit" class="btn">Enviar para Aprovação</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Script para alternar a visibilidade do formulário -->
+        <script>
+            function toggleForm() {
+                var form = document.getElementById("parterForm");
+                if (form.style.display === "none") {
+                    form.style.display = "block";
+                } else {
+                    form.style.display = "none";
+                }
+            }
+        </script>
+
+      
+    </div>
+
+  <!-- Serviços Detalhados -->
+        <div class="services">
+            <h2>Serviços Oferecidos</h2>
+            <div class="service" onclick="toggleDescription('service1')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvTzsPG0TRxUkVaCI462I1vJtgCg1jHc1wIIgol9ySoBW9TY6VPIIetZrH&s=10" alt="Serviço de Limpeza de Ar Condicionado">
+                <h3>Limpeza de Ar Condicionado</h3>
+                <p>Serviço especializado de limpeza de ar condicionado para residências e empresas. A manutenção regular evita problemas respiratórios e aumenta a eficiência do aparelho.</p>
+                <button class="btn">Saiba mais</button>
+            </div>
+            <div id="service1" class="service-description" style="display: none;">
+                <p>Nosso serviço de limpeza de ar condicionado é realizado por profissionais qualificados, garantindo a remoção de sujeira e poeira acumulada nas partes internas do aparelho. Além disso, a limpeza previne o acúmulo de bactérias e fungos, promovendo um ar mais saudável em sua casa ou empresa.</p>
+                <p><strong>Benefícios:</strong></p>
+                <ul>
+                    <li>Aumento da vida útil do equipamento</li>
+                    <li>Melhor desempenho e eficiência energética</li>
+                    <li>Ar mais limpo e saudável</li>
+                </ul>
+                <a href="https://wa.me/31972532868" class="btn">Agende Agora</a>
+            </div>
+
+            <div class="service" onclick="toggleDescription('service2')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0Y3HwmCvXWKr8s0WMLCk0KVOOb1jsASS6lsJHi_68UXe36XGVSo8CJY&s=10" alt="Serviço de Chaveiro 24h">
+                <h3>Chaveiro 24h</h3>
+                <p>Está trancado para fora de casa ou perdeu suas chaves? Nosso serviço de chaveiro 24 horas resolve isso rapidamente.</p>
+                <button class="btn">Saiba mais</button>
+            </div>
+            <div id="service2" class="service-description" style="display: none;">
+                <p>Oferecemos serviços de abertura de portas, troca de fechaduras e cópias de chave, com atendimento 24 horas para emergência. Nossa equipe está disponível para resolver qualquer imprevisto de forma rápida e segura.</p>
+                <p><strong>Benefícios:</strong></p>
+                <ul>
+                    <li>Atendimento rápido em casos de emergência</li>
+                    <li>Profissionais qualificados e experientes</li>
+                    <li>Serviço garantido de alta qualidade</li>
+                </ul>
+                <a href="https://wa.me/31972532868" class="btn">Agende Agora</a>
+            </div>
+
+            <div class="service" onclick="toggleDescription('service3')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4HJDecembGPbgKEsEesgGfB_BqO1mTRPyjCx3kRYzjCOEs9YPiG9M_Iie&s=10" alt="Serviço de Encanador 24h">
+                <h3>Encanador 24h</h3>
+                <p>Problemas com vazamentos, entupimentos ou reparos hidráulicos? Temos encanadores prontos para atendimento de urgência.</p>
+                <button class="btn">Saiba mais</button>
+            </div>
+            <div id="service3" class="service-description" style="display: none;">
+                <p>Nossos encanadores especializados estão disponíveis 24 horas por dia para resolver qualquer tipo de problema hidráulico. De vazamentos a entupimentos, nossa equipe tem a solução que você precisa com rapidez e segurança.</p>
+                <p><strong>Benefícios:</strong></p>
+                <ul>
+                    <li>Atendimento rápido e eficiente</li>
+                    <li>Resolução de problemas hidráulicos complexos</li>
+                    <li>Profissionais com experiência comprovada</li>
+                </ul>
+                <a href="https://wa.me/31972532868" class="btn">Agende Agora</a>
+            </div>
+
+            <div class="service" onclick="toggleDescription('service4')">
+                <img src="https://www.hiroclima.com.br/wp-content/uploads/2024/04/destacada-servico-manutencao-ar-condicionado-min.png" alt="Serviço de Manutenção de Ar Condicionado">
+                <h3>Manutenção de Ar Condicionado Comercial</h3>
+                <p>Se você tem um estabelecimento, não deixe a eficiência do seu ar condicionado de lado. Oferecemos manutenção preventiva e corretiva para garantir o bom funcionamento.</p>
+                <button class="btn">Saiba mais</button>
+            </div>
+            <div id="service4" class="service-description" style="display: none;">
+                <p>A manutenção periódica é essencial para garantir que seu ar condicionado continue funcionando de forma eficiente, sem gerar altos custos com energia elétrica ou reparos inesperados. Nossa equipe oferece o serviço completo para manter seu ar condicionado sempre funcionando bem.</p>
+                <p><strong>Benefícios:</strong></p>
+                <ul>
+                    <li>Redução de custos com energia</li>
+                    <li>Aumento da vida útil do equipamento</li>
+                    <li>Ambiente sempre agradável e climatizado</li>
+                </ul>
+                <a href="https://wa.me/31972532868" class="btn">Agende Agora</a>
+            </div>
+
+            <!-- Botão para planos mensais -->
+            <div class="plans">
+                <h2>Planos Mensais para Condomínios, Empresas e Hotéis</h2>
+                <p>Oferecemos planos exclusivos e acessíveis para empresas, condomínios e hotéis. Garantimos manutenção regular e serviços 24h para sua total conveniência.</p>
+                <a href="https://wa.me/31972532868" class="btn">Contrate o seu plano agora</a>
+            </div>
+        </div>
+
+        <!-- Script para alternar a visibilidade da descrição do serviço -->
+        <script>
+            function toggleDescription(serviceId) {
+                var serviceDescription = document.getElementById(serviceId);
+                if (serviceDescription.style.display === "none") {
+                    serviceDescription.style.display = "block";
+                } else {
+                    serviceDescription.style.display = "none";
+                }
+            }
+        </script>
+
+  <!-- Depoimentos de Clientes -->
+        <div class="testimonials">
+            <h2>O que nossos clientes estão dizendo</h2>
+            <div class="testimonial">
+                <p>"A Rova Services foi incrível! Eu estava com um problema no ar condicionado e eles resolveram rapidamente. Super recomendo!"</p>
+                <p><strong>João Pereira</strong></p>
+                <div class="stars">
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Contratei o serviço de chaveiro 24h e fiquei impressionado com a rapidez e a eficiência. Foi um alívio!"</p>
+                <p><strong>Maria Silva</strong></p>
+                <div class="stars">
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p>"A manutenção do meu ar condicionado foi perfeita! A equipe é muito profissional e atenciosa. Nota 10!"</p>
+                <p><strong>Felipe Costa</strong></p>
+                <div class="stars">
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <p>"Serviço de encanador 24h que superou minhas expectativas! Resolveram meu vazamento em tempo recorde. Excelente trabalho!"</p>
+                <p><strong>Ana Souza</strong></p>
+                <div class="stars">
+                    <span>⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+
+            <!-- Formulário para Comentários -->
+            <h3>Deixe seu comentário e avaliação</h3>
+            <form action="https://wa.me/31972532868" method="get">
+                <label for="comment">Comentário:</label><br>
+                <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Deixe seu comentário aqui..."></textarea><br><br>
+                
+                <label for="rating">Avaliação:</label><br>
+                <select id="rating" name="rating">
+                    <option value="1">⭐</option>
+                    <option value="2">⭐⭐</option>
+                    <option value="3">⭐⭐⭐</option>
+                    <option value="4">⭐⭐⭐⭐</option>
+                    <option value="5">⭐⭐⭐⭐⭐</option>
+                </select><br><br>
+
+                <button type="submit" class="btn">Enviar Avaliação</button>
+            </form>
+        </div>
+
+        <!-- Contato -->
+        <div class="contact">
+            <h2>Entre em Contato</h2>
+            <p>Estamos sempre disponíveis para atender você!</p>
+            <p><strong>Email:</strong> rovaservicess@gmail.com</p>
+            <p><strong>Telefone/WhatsApp:</strong> <a href="https://wa.me/31972532868">31 97253-2868</a></p>
+            <p><strong>Atendemos:</strong> Belo Horizonte e região. Temos parceiros em todo Brasil.</p>
+        </div>
+
+        <!-- Área de Parceiros -->
+        <div class="partners">
+            <h2>Seja Nosso Parceiro</h2>
+            <p>Tem uma empresa que oferece serviços complementares aos nossos? Junte-se a nós e expanda seu alcance! Preencha o formulário abaixo para se tornar um parceiro oficial da Rova Services.</p>
+
+            <!-- Formulário para parceiros -->
+            <div class="partner-form" onclick="toggleForm()">
+                <button class="btn">Clique aqui para se tornar um parceiro</button>
+            </div>
+
+            <div id="partner-form" class="form-container" style="display: none;">
+                <form action="mailto:rovaservicess@gmail.com" method="post" enctype="multipart/form-data">
+                    <h3>Cadastro de Parceiro</h3>
+                    <label for="company-name">Nome da Empresa:</label><br>
+                    <input type="text" id="company-name" name="company-name" required><br><br>
+
+                    <label for="company-phone">Telefone da Empresa:</label><br>
+                    <input type="tel" id="company-phone" name="company-phone" required><br><br>
+
+                    <label for="company-email">Email da Empresa:</label><br>
+                    <input type="email" id="company-email" name="company-email" required><br><br>
+
+                    <label for="company-address">Endereço da Empresa:</label><br>
+                    <input type="text" id="company-address" name="company-address" required><br><br>
+
+                    <label for="company-photo">Foto da Empresa:</label><br>
+                    <input type="file" id="company-photo" name="company-photo" accept="image/*" required><br><br>
+
+                    <label for="company-doc">Documento de Identificação:</label><br>
+                    <input type="file" id="company-doc" name="company-doc" accept="image/*" required><br><br>
+
+                    <label for="selfie-doc">Selfie com Documento de Identificação:</label><br>
+                    <input type="file" id="selfie-doc" name="selfie-doc" accept="image/*" required><br><br>
+
+                    <button type="submit" class="btn">Enviar Cadastro</button>
+                </form>
+            </div>
+
+            <!-- Script para exibir o formulário de parceiro -->
+            <script>
+                function toggleForm() {
+                    var form = document.getElementById('partner-form');
+                    if (form.style.display === "none") {
+                        form.style.display = "block";
+                    } else {
+                        form.style.display = "none";
+                    }
+                }
+            </script>
+        </div>
+        <!-- Planos Mensais para Hotéis, Condomínios e Empresas -->
+        <div class="plans">
+            <h2>Planos de Manutenção para Hotéis, Condomínios e Empresas</h2>
+            <p>Oferecemos planos mensais de manutenção para garantir que seu ambiente esteja sempre em perfeito funcionamento. Com preços acessíveis, nossos planos cobrem serviços essenciais como limpeza de ar condicionado, encanador, eletricista e muito mais!</p>
+
+            <div class="plan-option">
+                <h3>Plano Básico</h3>
+                <ul>
+                    <li>Limpeza de ar condicionado mensal</li>
+                    <li>Atendimento de encanador 24h</li>
+                    <li>Assistência elétrica básica</li>
+                    <li>Visita técnica mensal para revisão</li>
+                </ul>
+                <p><strong>Preço:</strong> R$ 199,00/mês</p>
+                <button class="btn">Contratar</button>
+            </div>
+
+            <div class="plan-option">
+                <h3>Plano Avançado</h3>
+                <ul>
+                    <li>Limpeza de ar condicionado mensal</li>
+                    <li>Atendimento de encanador e eletricista 24h</li>
+                    <li>Assistência técnica em eletrodomésticos</li>
+                    <li>Instalação e reparo de prateleiras, cortinas e mais</li>
+                    <li>Visita técnica mensal para revisão e manutenção preventiva</li>
+                </ul>
+                <p><strong>Preço:</strong> R$ 399,00/mês</p>
+                <button class="btn">Contratar</button>
+            </div>
+
+            <div class="plan-option">
+                <h3>Plano Premium</h3>
+                <ul>
+                    <li>Limpeza de ar condicionado semanal</li>
+                    <li>Atendimento de encanador e eletricista 24h</li>
+                    <li>Assistência técnica completa em eletrodomésticos</li>
+                    <li>Instalações e reparos de móveis e sistemas</li>
+                    <li>Manutenção preventiva e corretiva contínua</li>
+                </ul>
+                <p><strong>Preço:</strong> R$ 599,00/mês</p>
+                <button class="btn">Contratar</button>
+            </div>
+        </div>
+
+        <!-- Serviços adicionais -->
+        <div class="additional-services">
+            <h2>Serviços Adicionais</h2>
+            <p>Além dos nossos planos, oferecemos uma gama de serviços extras para atender todas as suas necessidades.</p>
+
+            <div class="service-item">
+                <h3>Assistência Técnica em Eletrodomésticos</h3>
+                <p>Realizamos reparos e manutenções em uma variedade de eletrodomésticos, garantindo a durabilidade e eficiência de seus aparelhos.</p>
+                <button class="btn">Solicitar Serviço</button>
+            </div>
+
+            <div class="service-item">
+                <h3>Instalação de Cortinas, Prateleiras e Varais</h3>
+                <p>Nosso time especializado realiza instalações com segurança e qualidade, transformando seu ambiente com soluções funcionais e práticas.</p>
+                <button class="btn">Solicitar Serviço</button>
+            </div>
+
+            <div class="service-item">
+                <h3>Limpeza de Ar Condicionado Residencial e Comercial</h3>
+                <p>A limpeza regular do seu ar condicionado é essencial para garantir um ambiente saudável e eficiente. Oferecemos planos mensais e serviços avulsos.</p>
+                <button class="btn">Solicitar Serviço</button>
+            </div>
+        </div>
+
+        <!-- Estratégias de Persuasão - Limpeza de Ar Condicionado -->
+        <div class="persuasion">
+            <h2>Não Deixe para Depois: Limpeza de Ar Condicionado Agora!</h2>
+            <p>Você sabia que a limpeza regular do seu ar condicionado pode melhorar a eficiência energética do seu aparelho e aumentar sua vida útil? Além disso, ajuda a prevenir problemas respiratórios e a manter o ambiente mais agradável e saudável!</p>
+            <p>Contratar nossa limpeza profissional vai garantir que seu sistema funcione melhor, consuma menos energia e prolongue a sua durabilidade. E o melhor de tudo: oferecemos planos mensais com condições imperdíveis para residências, empresas e hotéis.</p>
+            <p><strong>Aproveite agora nossos preços acessíveis para limpeza de ar condicionado!</strong></p>
+            <button class="btn">Contratar Serviço</button>
+        </div>
+        
+        <!-- Fim da seção de Persuasão -->
+
+        <!-- Mais Informações sobre nossos Serviços -->
+        <div class="more-info">
+            <h2>Por que Escolher a Rova Services?</h2>
+            <p>Com a Rova Services, você conta com profissionais qualificados e comprometidos em oferecer o melhor atendimento. Trabalhamos com a mais alta qualidade e eficiência para resolver todos os problemas de sua residência, empresa ou hotel.</p>
+
+            <ul>
+                <li>Assistência 24h em serviços essenciais</li>
+                <li>Atendimento especializado e rápido</li>
+                <li>Planos mensais acessíveis e personalizados</li>
+                <li>Atendimento em Belo Horizonte e região, com parceiros em todo Brasil</li>
+                <li>Serviços para residências, empresas, hotéis e condomínios</li>
+            </ul>
+            <p>Não perca tempo! Entre em contato agora mesmo e tenha a tranquilidade que você merece.</p>
+
+            <button class="btn">Entrar em Contato</button>
+        </div>
+        <!-- Comentários de Clientes e Avaliações -->
+        <div class="customer-reviews">
+            <h2>O Que Nossos Clientes Estão Dizendo</h2>
+            <p>Confira o feedback de clientes satisfeitos que utilizaram os nossos serviços. Agradecemos a confiança de todos e continuamos trabalhando para oferecer sempre o melhor!</p>
+
+            <!-- Comentários -->
+            <div class="review">
+                <p>"A Rova Services foi fundamental para resolver um problema sério com o meu ar condicionado. O atendimento foi rápido e o serviço de limpeza fez toda a diferença! Super recomendo!"</p>
+                <p><strong>5 Estrelas</strong></p>
+                <button class="btn">Deixe Sua Avaliação</button>
+            </div>
+
+            <div class="review">
+                <p>"Precisava de uma instalação de cortinas urgente para um evento na minha empresa, e eles fizeram tudo com perfeição! Chegaram no horário e fizeram o trabalho impecável."</p>
+                <p><strong>5 Estrelas</strong></p>
+                <button class="btn">Deixe Sua Avaliação</button>
+            </div>
+
+            <div class="review">
+                <p>"Contratei o serviço de encanador 24h, e o atendimento foi excelente. Resolveram o problema rapidamente e de forma eficiente!"</p>
+                <p><strong>4 Estrelas</strong></p>
+                <button class="btn">Deixe Sua Avaliação</button>
+            </div>
+
+            <div class="review">
+                <p>"Ótima experiência com a Rova Services! Solicitei a manutenção do meu ar condicionado comercial, e eles fizeram uma limpeza profunda, economizando energia e melhorando o fluxo de ar!"</p>
+                <p><strong>5 Estrelas</strong></p>
+                <button class="btn">Deixe Sua Avaliação</button>
+            </div>
+
+            <p>Você também pode deixar a sua avaliação abaixo! Compartilhe sua experiência conosco.</p>
+
+            <!-- Avaliação de Estrelas -->
+            <div class="star-rating">
+                <label for="rating">Avalie nosso serviço:</label>
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">⭐</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">⭐</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">⭐</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">⭐</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">⭐</label>
+            </div>
+        </div>
+
+        <!-- Formulário de Avaliação -->
+        <div class="review-form">
+            <h3>Deixe sua Avaliação</h3>
+            <form action="mailto:rovaservicess@gmail.com" method="post" enctype="text/plain">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="btn">Enviar Avaliação</button>
+            </form>
+        </div>
+
+        <!-- Fim da seção de Comentários e Avaliações -->
+
+        <!-- Área para Parceiros -->
+        <div class="partners">
+            <h2>Seja Nosso Parceiro</h2>
+            <p>Na Rova Services, estamos sempre em busca de novos parceiros para expandir nossos serviços. Se você é uma empresa de manutenção, serviços residenciais ou qualquer outro ramo relacionado, entre em contato conosco para uma parceria de sucesso.</p>
+
+            <button class="btn" onclick="document.getElementById('partner-form').style.display='block'">Clique aqui para se inscrever</button>
+
+            <!-- Formulário de Parceiro (invisível até ser clicado) -->
+            <div id="partner-form" style="display:none; margin-top: 20px;">
+                <h3>Formulário de Inscrição para Parceiro</h3>
+                <form action="mailto:rovaservicess@gmail.com" method="post" enctype="multipart/form-data">
+                    <label for="company-name">Nome da Empresa:</label>
+                    <input type="text" id="company-name" name="company-name" required>
+
+                    <label for="company-email">E-mail:</label>
+                    <input type="email" id="company-email" name="company-email" required>
+
+                    <label for="company-phone">Telefone:</label>
+                    <input type="tel" id="company-phone" name="company-phone" required>
+
+                    <label for="company-address">Endereço da Empresa:</label>
+                    <input type="text" id="company-address" name="company-address" required>
+
+                    <label for="company-photo">Foto da Empresa (comprovante de identidade):</label>
+                    <input type="file" id="company-photo" name="company-photo" required>
+
+                    <label for="company-docs">Documentos da Empresa (CNPJ
