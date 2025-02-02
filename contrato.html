@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contrato de Manutenção</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        nav a:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .contract-details {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contract-details h3 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .contract-details p {
+            color: #555;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .contract-actions {
+            margin-top: 20px;
+        }
+        .contract-actions button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contract-actions button:hover {
+            background-color: #0056b3;
+        }
+        .confirm-container {
+            margin-top: 20px;
+        }
+        #confirm-check {
+            margin-right: 10px;
+        }
+        #confirm-label {
+            font-size: 16px;
+        }
+        #btn-assinar {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        #btn-assinar.enabled {
+            cursor: pointer;
+            opacity: 1;
+        }
+        #btn-assinar:hover.enabled {
+            background-color: #218838;
+        }
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 60%;
+            border-radius: 10px;
+            text-align: left;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .modal-body {
+            margin-top: 10px;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contrato de Manutenção de Ar-Condicionado</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="contato.html">Contato</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="parceiros.html">Parceiros</a>
+    </nav>
+
+    <div class="container">
+        <h2>Contrato de Assinatura - Plano <span id="plano-name"></span></h2>
+        <div class="contract-details" id="plano-details">
+            <!-- Detalhes do contrato serão inseridos aqui pelo JavaScript -->
+        </div>
+
+        <div class="contract-actions">
+            <button onclick="mostrarTermos()">Ver Termos de Uso e Contrato</button>
+        </div>
+
+        <div class="confirm-container">
+            <input type="checkbox" id="confirm-check" onclick="habilitarBotao()">
+            <label for="confirm-check" id="confirm-label">Li e concordo com os Termos de Uso e Contrato</label>
+        </div>
+
+        <button id="btn-assinar" onclick="location.href='formulario-assinatura.html'" disabled>Assinar Agora</button>
+    </div>
+
+    <div id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Termos de Uso e Contrato</h2>
+                <button class="close-btn" onclick="fecharTermos()">×</button>
+            </div>
+            <div class="modal-body" id="termos-texto">
+                <h3>Termos e Condições Gerais</h3>
+                <p><strong>1. Objeto do Contrato:</strong> O presente contrato tem como objetivo a prestação de serviços de manutenção de aparelhos de ar-condicionado, conforme o plano escolhido pelo contratante.</p>
+                <p><strong>2. Plano Escolhido:</strong> O contratante opta pelo plano <span id="plano-name-modal"></span>, que inclui manutenção de aparelhos de ar-condicionado conforme os parâmetros definidos no plano.</p>
+                <p><strong>3. Pagamento:</strong> O pagamento será realizado mensalmente, conforme valor acordado e descrito no plano escolhido. O não pagamento acarretará na suspensão do serviço até regularização do débito.</p>
+                <p><strong>4. Cancelamento:</strong> O cancelamento poderá ser solicitado pelo contratante, desde que comunicado com antecedência mínima de 30 dias. A cobrança será feita proporcionalmente ao tempo de uso até a data do cancelamento.</p>
+                <p><strong>5. Carência:</strong> Todos os planos possuem um período de carência de 3 meses, onde o serviço será prestado, mas não coberto em caso de falhas ou danos.</p>
+                <p><strong>6. Responsabilidades:</strong> A empresa não se responsabiliza por danos decorrentes de mau uso do equipamento ou falhas não relacionadas à manutenção preventiva acordada no plano.</p>
+                <p><strong>7. Juros e Multas:</strong> Caso o pagamento seja realizado após a data de vencimento, será cobrada uma multa de 2% sobre o valor devido, além de juros de 1% ao mês.</p>
+                <p><strong>8. Isenção de Responsabilidade:</strong> A empresa não será responsável por falhas no serviço que ocorrerem devido à intervenção de terceiros ou problemas fora do alcance das manutenções previstas.</p>
+                <p><strong>9. Foro de Eleição:</strong> Fica eleito o foro da cidade de Belo Horizonte, para dirimir quaisquer controvérsias oriundas deste contrato.</p>
+                <p>Ao prosseguir, o contratante declara ter lido, compreendido e concordado com todos os termos e condições deste contrato.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const plano = urlParams.get('plano');
+
+        const planos = {
+            'básico_sem_cobertura': { nome: 'Plano Básico Sem Cobertura', preco: 'R$ 150,00 por mês', descricao: 'Manutenção preventiva semestral para até 5 aparelhos.' },
+            'empresarial_sem_cobertura': { nome: 'Plano Empresarial Sem Cobertura', preco: 'R$ 400,00 por mês', descricao: 'Manutenção mensal para até 10 aparelhos.' },
+            'premium_sem_cobertura': { nome: 'Plano Premium Sem Cobertura', preco: 'R$ 800,00 por mês', descricao: 'Manutenção semanal para até 15 aparelhos.' }
+        };
+
+        const planoData = planos[plano];
+
+        document.getElementById('plano-name').innerText = planoData.nome;
+        document.getElementById('plano-details').innerHTML = `<p><strong>Valor:</strong> ${planoData.preco}</p><p><strong>Descrição:</strong> ${planoData.descricao}</p>`;
+
+        document.getElementById('plano-name-modal').innerText = planoData.nome;
+
+        function mostrarTermos() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function fecharTermos() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function habilitarBotao() {
+            let check = document.getElementById('confirm-check');
+            let botao = document.getElementById('btn-assinar');
+            if (check.checked) {
+                botao.disabled = false;
+                botao.classList.add('enabled');
+            } else {
+                botao.disabled = true;
+                botao.classList.remove('enabled');
+            }
+        }
+    </script>
+
+</body>
+</html>
