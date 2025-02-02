@@ -197,3 +197,136 @@
 
 </body>
 </html>
+<!-- Seção de Comentários e Avaliação -->
+<div class="container">
+    <h2>O que estão dizendo sobre nós</h2>
+    <p>Veja alguns comentários de nossos clientes satisfeitos:</p>
+
+    <div class="comments-section">
+        <div class="comment-card">
+            <p><strong>Lucas Almeida:</strong></p>
+            <p>"Fiquei impressionado com a rapidez e a qualidade do atendimento. O serviço de higienização do ar-condicionado foi excelente! Recomendo muito!"</p>
+            <div class="star-rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+            </div>
+        </div>
+
+        <div class="comment-card">
+            <p><strong>Juliana Costa:</strong></p>
+            <p>"Precisei de um chaveiro 24h e fui atendida de imediato. Atendimento profissional e super rápido. Com certeza vou contratar novamente!"</p>
+            <div class="star-rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
+            </div>
+        </div>
+
+        <div class="comment-card">
+            <p><strong>Marcelo Souza:</strong></p>
+            <p>"A instalação das minhas prateleiras foi impecável. Muito satisfeita com o trabalho e o cuidado com o ambiente!"</p>
+            <div class="star-rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
+            </div>
+        </div>
+
+        <div class="comment-card">
+            <p><strong>Ana Paula:</strong></p>
+            <p>"Tive um problema elétrico em casa e o eletricista chegou rapidamente. Serviço de qualidade e preço justo. Super recomendo!"</p>
+            <div class="star-rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+            </div>
+        </div>
+    </div>
+
+    <p>Gostou dos nossos serviços? Deixe sua avaliação!</p>
+    <form action="comentarios.html" method="post">
+        <div class="star-rating-input">
+            <label for="rating">Avalie nossos serviços:</label>
+            <input type="radio" name="rating" value="1" id="star1"> 1
+            <input type="radio" name="rating" value="2" id="star2"> 2
+            <input type="radio" name="rating" value="3" id="star3"> 3
+            <input type="radio" name="rating" value="4" id="star4"> 4
+            <input type="radio" name="rating" value="5" id="star5"> 5
+        </div>
+        <textarea name="comment" placeholder="Deixe seu comentário..." rows="4" required></textarea>
+        <button type="submit" class="comment-button">Enviar Avaliação</button>
+    </form>
+</div>
+
+<style>
+    .comments-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .comment-card {
+        background-color: #444;
+        padding: 15px;
+        width: 100%;
+        max-width: 320px;
+        border-radius: 10px;
+        text-align: left;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .star-rating {
+        font-size: 1.5rem;
+        color: #f1c40f;
+        margin-top: 10px;
+    }
+
+    .star {
+        cursor: pointer;
+    }
+
+    .star-rating-input {
+        margin: 20px 0;
+    }
+
+    .star-rating-input input {
+        margin-right: 10px;
+    }
+
+    .comment-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+
+    .comment-button:hover {
+        background-color: #218838;
+    }
+
+    @media (max-width: 768px) {
+        .comment-card {
+            max-width: 48%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .comment-card {
+            max-width: 90%;
+        }
+    }
+</style>
