@@ -1,6 +1,49 @@
+# robots.txt para Rova Services
+# Última atualização: [DATA]
+
 User-agent: *
+Allow: /$
+Allow: /public/
+Allow: /assets/
 Disallow: /admin/
 Disallow: /login/
-Disallow: /privado/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /includes/
+Disallow: /config/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /*.env$
+Disallow: /*.bak$
+Disallow: /*.old$
+Disallow: /*.sql$
+Disallow: /*?*
+Disallow: /*.pdf$
+Disallow: /*.docx$
+Disallow: /search/
+Disallow: /cart/
+Disallow: /checkout/
 
+# Parâmetros de URL a serem ignorados
+Crawl-delay: 2
+
+# Sitemaps
+Sitemap: https://www.rovaservices.com.br/sitemap.xml
 Sitemap: https://rovaservices.com.br/sitemap.xml
+
+# User-agents específicos
+User-agent: AhrefsBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Disallow: /
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+Crawl-delay: 5
+
+User-agent: dotbot
+Disallow: /
+Crawl-delay: 5
