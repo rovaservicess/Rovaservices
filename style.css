@@ -1,0 +1,12 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.signature-pad {
+    border: 2px dashed #2A5C82;
+    margin: 20px 0;
+}
