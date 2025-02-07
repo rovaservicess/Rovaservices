@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metadados mantidos com pequenos ajustes -->
+    <meta name="description" content="Contrato Digital de Manutenção Preventiva para Sistemas de Climatização - Rova Services">
+    <meta name="keywords" content="contrato manutenção ar condicionado, termos contrato HVAC, assinatura digital manutenção BH">
+</head>
+<body>
+    <!-- Header mantido igual -->
+
+    <div class="contract-container">
+        <div class="contract-header">
+            <h1>Contrato de Manutenção Preventiva</h1>
+            <p>Plano Selecionado: <strong id="planoNome"></strong></p>
+            <p class="contract-alert">⚠️ Leia atentamente antes de assinar</p>
+        </div>
+
+        <div class="contract-content">
+            <div class="contract-terms">
+                <h2>Termos e Condições</h2>
+                <div class="terms-scroll">
+                    <h3>1. Objeto do Contrato</h3>
+                    <p>A ROVA SERVICES LTDA, CNPJ 52.596.336/0001-62, compromete-se a realizar serviços de manutenção preventiva no(s) sistema(s) de climatização do contratante, conforme especificado no plano escolhido.</p>
+
+                    <h3>2. Responsabilidades do Contratante</h3>
+                    <ul>
+                        <li>Fornecer acesso adequado aos equipamentos</li>
+                        <li>Comunicar eventuais alterações no sistema</li>
+                        <li>Permitir a realização dos serviços nos horários agendados</li>
+                    </ul>
+
+                    <h3>3. Escopo dos Serviços</h3>
+                    <ul>
+                        <li>Inspeção técnica trimestral</li>
+                        <li>Limpeza de componentes internos</li>
+                        <li>Verificação de pressão de refrigerante</li>
+                        <li>Análise de consumo energético</li>
+                        <li>Relatório técnico detalhado</li>
+                    </ul>
+
+                    <h3>4. Pagamento</h3>
+                    <p>O pagamento será realizado mensalmente através de boleto bancário, com vencimento no dia 10 de cada mês. Atrasos superiores a 15 dias acarretam suspensão dos serviços.</p>
+
+                    <h3>5. Vigência</h3>
+                    <p>Este contrato tem validade de 12 meses, renovável automaticamente por igual período, salvo comunicação de rescisão com 30 dias de antecedência.</p>
+
+                    <h3>6. Garantia</h3>
+                    <p>Cobre defeitos de mão de obra por 90 dias após cada intervenção. Não inclui danos por má utilização ou força maior.</p>
+
+                    <h3>7. Rescisão</h3>
+                    <p>Qualquer das partes pode rescindir o contrato mediante aviso por escrito com 30 dias de antecedência, sujeito a multa de 20% do valor restante em caso de rescisão sem justa causa pelo contratante.</p>
+                </div>
+            </div>
+
+            <div class="signature-process">
+                <div class="client-info">
+                    <h3>Dados do Contratante</h3>
+                    <form id="contractForm">
+                        <div class="form-group">
+                            <label for="nome">Nome/Razão Social:</label>
+                            <input type="text" id="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cnpj">CNPJ/CPF:</label>
+                            <input type="text" id="cnpj" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="endereco">Endereço do Imóvel:</label>
+                            <input type="text" id="endereco" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="signature-section">
+                    <h3>Assinatura Digital</h3>
+                    <div class="signature-instructions">
+                        <p>Desenhe sua assinatura no campo abaixo usando o mouse ou dedo (em dispositivos touch)</p>
+                    </div>
+                    <div class="signature-pad-container">
+                        <canvas id="signaturePad"></canvas>
+                        <button onclick="clearSignature()" class="btn-secondary">Limpar</button>
+                    </div>
+                    <div class="signature-validation">
+                        <label>
+                            <input type="checkbox" id="legalConsent" required>
+                            Declaro que li e concordo com todos os termos deste contrato
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contract-actions">
+            <button class="btn-primary" onclick="submitContract()" disabled id="submitBtn">
+                Confirmar Assinatura
+            </button>
+            <button class="btn-secondary" onclick="window.print()">
+                Imprimir Contrato
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>✅ Contrato Assinado com Sucesso!</h2>
+            <p>Um e-mail de confirmação foi enviado para <span id="confirmationEmail"></span></p>
+            <p>Número do Contrato: <strong>ROVA-2024-<span id="contractNumber"></span></strong></p>
+            <button class="btn-primary" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <style>
+        /* Estilos Aprimorados */
+        .contract-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .contract-header {
+            text-align: center;
+            border-bottom: 2px solid #2A5C82;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contract-alert {
+            color: #dc3545;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .contract-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .terms-scroll {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .signature-process {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+
+        #signaturePad {
+            border: 2px dashed #ccc;
+            background: #fff;
+            width: 100%;
+            height: 150px;
+            margin: 1rem 0;
+        }
+
+        .contract-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: #2A5C82;
+            padding: 12px 30px;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            padding: 12px 30px;
+        }
+
+        @media (max-width: 768px) {
+            .contract-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <script>
+        // Controle de Assinatura Aprimorado
+        const canvas = document.getElementById('signaturePad');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let points = [];
+        
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+
+        function startDrawing(e) {
+            isDrawing = true;
+            points = [];
+            addPoint(e);
+        }
+
+        function addPoint(e) {
+            if (!isDrawing) return;
+            
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            points.push({x, y});
+            
+            ctx.beginPath();
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = '#2A5C82';
+            
+            if(points.length > 1) {
+                ctx.moveTo(points[points.length-2].x, points[points.length-2].y);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+            }
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+            updateSubmitButton();
+        }
+
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            points = [];
+            updateSubmitButton();
+        }
+
+        function updateSubmitButton() {
+            const isValid = points.length > 10 && document.getElementById('legalConsent').checked;
+            document.getElementById('submitBtn').disabled = !isValid;
+        }
+
+        function submitContract() {
+            // Validar dados do formulário
+            const formData = {
+                nome: document.getElementById('nome').value,
+                cnpj: document.getElementById('cnpj').value,
+                endereco: document.getElementById('endereco').value,
+                email: document.getElementById('email').value,
+                signature: canvas.toDataURL()
+            };
+
+            // Simular envio
+            document.getElementById('confirmationEmail').textContent = formData.email;
+            document.getElementById('contractNumber').textContent = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('confirmationModal').style.display = 'flex';
+        }
+
+        // Event Listeners
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', addPoint);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+        document.getElementById('legalConsent').addEventListener('change', updateSubmitButton);
+
+        // Inicialização
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+    </script>
+</body>
+</html>
