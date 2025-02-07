@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrato Rova Services</title>
+    <style>
+        :root {
+            --primary: #2A5C82;
+            --secondary: #28a745;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .contract-box {
+            border: 2px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        #signaturePad {
+            border: 2px dashed #ccc;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .signature-section {
+            margin: 40px 0;
+        }
+
+        .terms {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contrato de Manutenção</h1>
+    
+    <div class="contract-box">
+        <h2>Termos do Contrato</h2>
+        <div class="terms">
+            <p><strong>1. Objeto:</strong> Manutenção preventiva de sistemas de climatização conforme plano escolhido.</p>
+            <p><strong>2. Periodicidade:</strong> Visitas técnicas conforme plano contratado.</p>
+            <p><strong>3. Pagamento:</strong> Mensalidade fixa via boleto bancário.</p>
+            <p><strong>4. Vigência:</strong> 12 meses, renovação automática.</p>
+            <p><strong>5. Rescisão:</strong> Avise com 30 dias de antecedência.</p>
+        </div>
+
+        <div class="signature-section">
+            <h3>Dados do Cliente</h3>
+            <input type="text" id="clientName" placeholder="Nome Completo" required>
+            <input type="email" id="clientEmail" placeholder="E-mail" required>
+
+            <h3>Assinatura Digital</h3>
+            <canvas id="signaturePad" width="600" height="200"></canvas>
+            <button onclick="clearSignature()" class="btn btn-primary">Limpar</button>
+        </div>
+
+        <div>
+            <label>
+                <input type="checkbox" id="agreeTerms" required>
+                Concordo com os termos do contrato
+            </label>
+        </div>
+
+        <button onclick="saveContract()" class="btn btn-primary" disabled>Assinar Contrato</button>
+    </div>
+
+    <script>
+        // Controle de Assinatura
+        const canvas = document.getElementById('signaturePad');
+        const ctx = canvas.getContext('2d');
+        let drawing = false;
+        
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = var(--primary);
+
+        canvas.addEventListener('mousedown', start);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', end);
+        canvas.addEventListener('mouseout', end);
+
+        function start(e) {
+            drawing = true;
+            ctx.beginPath();
+            const pos = getMousePos(canvas, e);
+            ctx.moveTo(pos.x, pos.y);
+        }
+
+        function draw(e) {
+            if (!drawing) return;
+            const pos = getMousePos(canvas, e);
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+        }
+
+        function end() {
+            drawing = false;
+            checkForm();
+        }
+
+        function getMousePos(canvas, e) {
+            const rect = canvas.getBoundingClientRect();
+            return {
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            };
+        }
+
+        function clearSignature() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            checkForm();
+        }
+
+        // Validação do Formulário
+        function checkForm() {
+            const signed = !isCanvasBlank(canvas);
+            const valid = signed && document.getElementById('agreeTerms').checked;
+            document.querySelector('button[onclick="saveContract()"]').disabled = !valid;
+        }
+
+        document.getElementById('agreeTerms').addEventListener('change', checkForm);
+
+        function isCanvasBlank(canvas) {
+            const blank = document.createElement('canvas');
+            blank.width = canvas.width;
+            blank.height = canvas.height;
+            return canvas.toDataURL() === blank.toDataURL();
+        }
+
+        // Salvar Localmente
+        function saveContract() {
+            const contractData = {
+                name: document.getElementById('clientName').value,
+                email: document.getElementById('clientEmail').value,
+                date: new Date().toLocaleDateString(),
+                signature: canvas.toDataURL()
+            };
+
+            // Salvar no localStorage
+            localStorage.setItem('lastContract', JSON.stringify(contractData));
+
+            // Gerar PDF Simulado
+            const pdfContent = `
+                <h1>Contrato Assinado</h1>
+                <p>Nome: ${contractData.name}</p>
+                <p>Data: ${contractData.date}</p>
+                <img src="${contractData.signature}" style="max-width: 300px;">
+                <p>Este documento foi assinado digitalmente através da plataforma Rova Services.</p>
+            `;
+
+            // Download Simulado
+            const blob = new Blob([pdfContent], {type: 'text/html'});
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `Contrato-Rova-${Date.now()}.html`;
+            link.click();
+
+            alert('Contrato salvo localmente! Verifique seu downloads.');
+        }
+    </script>
+</body>
+</html>
