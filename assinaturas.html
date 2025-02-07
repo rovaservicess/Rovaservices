@@ -40,8 +40,8 @@
         "priceRange": "R$ 33,90 - R$ 269,90",
         "openingHours": "Mo-Fr 08:00-18:00",
         "sameAs": [
-            "https://www.facebook.com/rovaservicesbh",
-            "https://www.instagram.com/rovaservicesbh"
+            "https://www.facebook.com/RovaAssist",
+            "https://www.instagram.com/rovaservices"
         ]
     }
     </script>
@@ -246,11 +246,13 @@
 
     <footer class="site-footer">
         <div class="container">
-            <p>© 2024 Rova Services - CNPJ 00.000.000/0001-00</p>
+            <p>© 2024 Rova Services - CNPJ 52.596.336/0001-62</p>
             <nav>
                 <a href="politica-privacidade.html">Política de Privacidade</a> |
                 <a href="termos-uso.html">Termos de Uso</a> |
-                <a href="parceiros.html">Seja um Parceiro</a>
+                <a href="parceiros.html">Seja um Parceiro</a> |
+                <a href="https://www.facebook.com/RovaAssist" target="_blank" rel="noopener noreferrer">Facebook</a> |
+                <a href="https://www.instagram.com/rovaservices" target="_blank" rel="noopener noreferrer">Instagram</a>
             </nav>
             <p>Atendemos toda região metropolitana de Belo Horizonte</p>
         </div>
@@ -258,11 +260,16 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Lógica para carregar conteúdo do contrato
             const urlParams = new URLSearchParams(window.location.search);
-            const plano = urlParams.get('plano');
+            const serviceType = urlParams.get('plano');
             
-            if(window.location.pathname.includes('contrato.html') && plano) {
-                // Lógica para carregar contrato específico
+            if(window.location.pathname.includes('contrato.html')) {
+                fetch(`contratos/${serviceType}.txt`)
+                    .then(response => response.text())
+                    .then(text => {
+                        document.getElementById('contract-content').innerHTML = text;
+                    });
             }
         });
     </script>
