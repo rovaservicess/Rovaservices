@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contrato de Manutenção - Rova Services - Especialistas em climatização empresarial em Belo Horizonte">
+    <meta name="keywords" content="contrato manutenção ar condicionado, plano empresarial climatização, termos serviço HVAC">
+    <meta name="author" content="Rova Services">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.rovaservices.com.br/contrato">
+    <meta property="og:title" content="Contrato de Manutenção - Rova Services">
+    <meta property="og:description" content="Assinatura digital do contrato de manutenção preventiva para sistemas de ar-condicionado">
+    <meta property="og:image" content="https://www.rovaservices.com.br/images/og-contract.jpg">
+
+    <title>Contrato de Manutenção - Rova Services</title>
+    <style>
+        :root {
+            --primary-color: #2A5C82;
+            --secondary-color: #28a745;
+            --text-dark: #2d3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .site-header {
+            background: var(--primary-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .contract-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+
+        .contract-actions {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .confirm-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        #btn-assinar {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        #btn-assinar.enabled {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .termos-list {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .termos-list li {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="index.html"><img src="images/logo-rova.png" alt="Rova Services" width="150"></a>
+            <div class="nav-links">
+                <a href="planos.html">Voltar para Planos</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="contract-card">
+            <h1>Contrato de Manutenção Preventiva</h1>
+            <div id="contract-content">
+                <h2>Plano: <span id="plano-nome"></span></h2>
+                <p id="plano-descricao"></p>
+                <div id="termos-contrato">
+                    <h3>Condições Gerais do Contrato</h3>
+                    <ul class="termos-list">
+                        <li>2 acionamentos anuais por aparelho contratado</li>
+                        <li>Cobertura para manutenção preventiva programada</li>
+                        <li>Atendimento prioritário conforme plano escolhido</li>
+                        <li>Pagamento mensal via boleto ou cartão de crédito</li>
+                        <li>Carência de 15 dias para início dos serviços</li>
+                        <li>Rescisão com aviso prévio de 30 dias</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="contract-actions">
+                <button class="btn btn-secondary" onclick="mostrarTermosCompletos()">Ver Termos Completos</button>
+            </div>
+
+            <div class="confirm-container">
+                <label>
+                    <input type="checkbox" id="aceito-termos" onchange="habilitarAssinatura()">
+                    Li e concordo com os termos do contrato
+                </label>
+            </div>
+
+            <button class="btn btn-primary" id="btn-assinar" disabled onclick="redirecionarAssinatura()">Assinar Digitalmente</button>
+        </div>
+    </div>
+
+    <div id="modal">
+        <div class="modal-content">
+            <h2>Termos Completos do Contrato</h2>
+            <div id="termos-completos">
+                <h3>1. Objeto do Contrato</h3>
+                <p>A Rova Services se compromete a realizar serviços de manutenção preventiva nos sistemas de ar-condicionado conforme especificado no plano escolhido.</p>
+
+                <h3>2. Direitos do Cliente</h3>
+                <ul class="termos-list">
+                    <li>2 acionamentos técnicos anuais por aparelho</li>
+                    <li>Relatórios de manutenção detalhados</li>
+                    <li>Prioridade de atendimento conforme plano</li>
+                </ul>
+
+                <h3>3. Obrigações do Contratante</h3>
+                <ul class="termos-list">
+                    <li>Pagamento mensal até o 5º dia útil</li>
+                    <li>Fornecer acesso aos equipamentos</li>
+                    <li>Comunicar necessidades especiais com 48h de antecedência</li>
+                </ul>
+
+                <h3>4. Penalidades</h3>
+                <p>Multa de 2% ao mês por pagamentos em atraso. Rescisão contratual após 60 dias de inadimplência.</p>
+            </div>
+            <button class="btn btn-primary" onclick="fecharModal()">Fechar</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2024 Rova Services - CNPJ 52.596.336/0001-62</p>
+            <nav>
+                <a href="politica-privacidade.html">Política de Privacidade</a> |
+                <a href="termos-uso.html">Termos de Uso</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        const planos = {
+            'basico-sem': {
+                nome: 'Básico Sem Cobertura',
+                descricao: 'Manutenção preventiva básica para até 5 aparelhos, com 2 acionamentos anuais por equipamento.'
+            },
+            'empresarial': {
+                nome: 'Empresarial Completo',
+                descricao: 'Solução completa para até 15 aparelhos com relatórios mensais de desempenho.'
+            },
+            'premium': {
+                nome: 'Premium Corporativo',
+                descricao: 'Cobertura ilimitada com prioridade máxima de atendimento 24/7.'
+            },
+            'cobertura-total': {
+                nome: 'Cobertura Total',
+                descricao: 'Plano completo com reposição de peças e carga de gás inclusa.'
+            },
+            'condominios': {
+                nome: 'Condomínios',
+                descricao: 'Solução especializada para condomínios com descontos progressivos.'
+            }
+        };
+
+        function carregarContrato() {
+            const params = new URLSearchParams(window.location.search);
+            const planoKey = params.get('plano');
+            const plano = planos[planoKey];
+
+            if(plano) {
+                document.getElementById('plano-nome').textContent = plano.nome;
+                document.getElementById('plano-descricao').textContent = plano.descricao;
+            }
+        }
+
+        function mostrarTermosCompletos() {
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function fecharModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function habilitarAssinatura() {
+            const check = document.getElementById('aceito-termos');
+            const btn = document.getElementById('btn-assinar');
+            btn.disabled = !check.checked;
+            btn.classList.toggle('enabled', check.checked);
+        }
+
+        function redirecionarAssinatura() {
+            window.location.href = 'formulario-assinatura.html?plano=' + new URLSearchParams(window.location.search).get('plano');
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', carregarContrato);
+    </script>
+</body>
+</html>
